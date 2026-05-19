@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------------------------------------
+   Base theme tokens. Light mode = warm, trustworthy. Dark mode = elegant.
+   -------------------------------------------------------------------------- */
+@layer base {
+  :root {
+    --font-sans: 'Segoe UI', system-ui, sans-serif;
+    --font-serif: 'Georgia', serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem; /* offset for the sticky header on anchor jumps */
+  }
+
+  body {
+    @apply bg-saffron-50 text-ink-900 antialiased transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-ink-950 text-ink-100;
+  }
+
+  /* Honour reduced-motion preferences globally. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reusable component classes.
+   -------------------------------------------------------------------------- */
+@layer components {
+  /* Centered content wrapper used by every section. */
+  .container-kf {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  /* Section vertical rhythm. */
+  .section-pad {
+    @apply py-16 sm:py-24;
+  }
+
+  /* Primary call-to-action button. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           bg-gradient-to-r from-saffron-500 to-rose-500 px-6 py-3
+           text-sm font-semibold text-white shadow-warm
+           transition-transform duration-200 hover:scale-[1.03]
+           focus:outline-none focus:ring-2 focus:ring-saffron-400 focus:ring-offset-2
+           focus:ring-offset-saffron-50 dark:focus:ring-offset-ink-950;
+  }
+
+  /* Secondary (outline) call-to-action button. */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           border-2 border-saffron-400 px-6 py-3 text-sm font-semibold
+           text-saffron-700 transition-colors duration-200
+           hover:bg-saffron-100 focus:outline-none focus:ring-2
+           focus:ring-saffron-400 dark:border-gold-400 dark:text-gold-300
+           dark:hover:bg-ink-800;
+  }
+
+  /* Generic surface card. */
+  .card-kf {
+    @apply rounded-2xl border border-saffron-100 bg-white p-6 shadow-card
+           transition-colors duration-300
+           dark:border-ink-800 dark:bg-ink-900;
+  }
+
+  /* Small uppercase eyebrow label above section titles. */
+  .eyebrow {
+    @apply inline-block rounded-full bg-saffron-100 px-4 py-1
+           text-xs font-bold uppercase tracking-widest text-saffron-700
+           dark:bg-ink-800 dark:text-gold-300;
+  }
+
+  /* Gradient heading text. */
+  .gradient-text {
+    @apply bg-gradient-to-r from-saffron-600 via-rose-500 to-gold-500
+           bg-clip-text text-transparent;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Utilities.
+   -------------------------------------------------------------------------- */
+@layer utilities {
+  /* Pause the supporters marquee on hover. */
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Slim, on-brand scrollbar. */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: #f4861a;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb { background: #c08f37; }
