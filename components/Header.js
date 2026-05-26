@@ -3,7 +3,7 @@
 // Sticky header: brand, primary navigation, language + theme toggles, and the
 // always-visible "Donate Now" CTA highlighting the 80G tax benefit.
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { useTheme } from '@/lib/ThemeContext';
 import Logo from './Logo';
@@ -17,10 +17,12 @@ import {
 } from './Icons';
 
 export default function Header() {
-  const { t, lang, toggleLanguage } = useLanguage();
+  const { t, lang, setLang, languages } = useLanguage();
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef(null);
 
   // Add a shadow + solid background once the page is scrolled.
   useEffect(() => {
@@ -29,6 +31,20 @@ export default function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Close the language dropdown when the user clicks outside of it.
+  useEffect(() => {
+    if (!langOpen) return;
+    const onDocClick = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', onDocClick);
+    return () => document.removeEventListener('mousedown', onDocClick);
+  }, [langOpen]);
+
+  const currentLang = languages.find((l) => l.code === lang) || languages[0];
 
   // Navigation links — `id` matches the section anchors in app/page.js.
   const links = [
@@ -49,7 +65,7 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="container-kf flex h-[4.75rem] items-center justify-between gap-4">
+      <div className="container-kf flex h-36 items-center justify-between gap-4">
         {/* Brand ----------------------------------------------------------- */}
         <a href="#home" className="flex items-center gap-3" aria-label={t.nav.brand}>
           <Logo />
@@ -78,15 +94,46 @@ export default function Header() {
 
         {/* Controls -------------------------------------------------------- */}
         <div className="flex items-center gap-2">
-          {/* Language toggle */}
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-1.5 rounded-full border border-saffron-200 px-3 py-2 text-sm font-semibold text-saffron-700 transition-colors hover:bg-saffron-100 dark:border-ink-800 dark:text-gold-300 dark:hover:bg-ink-800"
-            aria-label={`Switch language to ${t.common.langLabel}`}
-          >
-            <GlobeIcon className="text-base" />
-            <span>{t.common.langLabel}</span>
-          </button>
+          {/* Language selector */}
+          <div ref={langRef} className="relative">
+            <button
+              onClick={() => setLangOpen((o) => !o)}
+              className="flex items-center gap-1.5 rounded-full border border-saffron-200 px-3 py-2 text-sm font-semibold text-saffron-700 transition-colors hover:bg-saffron-100 dark:border-ink-800 dark:text-gold-300 dark:hover:bg-ink-800"
+              aria-haspopup="listbox"
+              aria-expanded={langOpen}
+              aria-label="Select language"
+            >
+              <GlobeIcon className="text-base" />
+              <span>{currentLang.native}</span>
+            </button>
+            {langOpen && (
+              <ul
+                role="listbox"
+                className="absolute right-0 z-50 mt-2 max-h-80 w-48 overflow-y-auto rounded-xl border border-saffron-100 bg-white py-2 shadow-card dark:border-ink-800 dark:bg-ink-950"
+              >
+                {languages.map((l) => (
+                  <li key={l.code}>
+                    <button
+                      role="option"
+                      aria-selected={l.code === lang}
+                      onClick={() => {
+                        setLang(l.code);
+                        setLangOpen(false);
+                      }}
+                      className={`flex w-full items-center justify-between px-4 py-2 text-left text-sm transition-colors hover:bg-saffron-100 dark:hover:bg-ink-800 ${
+                        l.code === lang
+                          ? 'font-semibold text-saffron-700 dark:text-gold-300'
+                          : 'text-ink-900 dark:text-ink-100'
+                      }`}
+                    >
+                      <span>{l.native}</span>
+                      <span className="text-xs uppercase opacity-60">{l.code}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
           {/* Theme toggle */}
           <button

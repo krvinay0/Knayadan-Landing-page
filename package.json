@@ -2,7 +2,7 @@
   "name": "knayadan-user-intraction",
   "version": "1.0.0",
   "private": true,
-  "description": "Bilingual, theme-switchable website for Kanyadan Foundation (NGO)",
+  "description": "Bilingual, theme-switchable website for Shubhsaathi Foundation (NGO)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

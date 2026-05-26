@@ -29,7 +29,7 @@ export default function ImagePlaceholder({
         bg-gradient-to-br ${g} ${rounded} ${className}
         dark:opacity-90`}
       role="img"
-      aria-label={label || 'Kanyadan Foundation photograph'}
+      aria-label={label || 'Shubhsaathi Foundation photograph'}
     >
       {/* Soft decorative motif */}
       <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/30" />

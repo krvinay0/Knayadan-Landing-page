@@ -168,7 +168,7 @@ export default function Contact() {
                   {c.mapTitle}
                 </p>
                 <iframe
-                  title="Kanyadan Foundation office location"
+                  title="Shubhsaathi Foundation office location"
                   src="https://www.google.com/maps?q=Boring+Road,+Patna,+Bihar&output=embed"
                   className="h-64 w-full border-0"
                   loading="lazy"

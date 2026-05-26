@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden pt-[4.75rem]"
+      className="relative overflow-hidden pt-36"
     >
       {/* Soft warm background wash */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-saffron-100 via-saffron-50 to-saffron-50 dark:from-ink-900 dark:via-ink-950 dark:to-ink-950" />

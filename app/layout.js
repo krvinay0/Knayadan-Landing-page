@@ -2,11 +2,11 @@ import './globals.css';
 import Providers from './providers';
 
 export const metadata = {
-  title: 'Kanyadan Foundation — Empowering Daughters, Uplifting Families',
+  title: 'Shubhsaathi Foundation — Empowering Daughters, Uplifting Families',
   description:
-    'Kanyadan Foundation is a registered Section 8 non-profit supporting underprivileged families with dignified marriages, subsidised health insurance for women, and skill development. Donations are 80G tax-exempt.',
+    'Shubhsaathi Foundation is a registered Section 8 non-profit supporting underprivileged families with dignified marriages, subsidised health insurance for women, and skill development. Donations are 80G tax-exempt.',
   keywords: [
-    'Kanyadan Foundation',
+    'Shubhsaathi Foundation',
     'NGO Bihar',
     'donate marriage',
     '80G tax exemption',
@@ -14,7 +14,7 @@ export const metadata = {
     'health insurance subsidy',
   ],
   openGraph: {
-    title: 'Kanyadan Foundation',
+    title: 'Shubhsaathi Foundation',
     description: 'Empowering Daughters, Uplifting Families.',
     type: 'website',
   },

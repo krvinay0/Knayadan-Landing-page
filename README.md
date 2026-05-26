@@ -1,6 +1,6 @@
-# Kanyadan Foundation — Website
+# Shubhsaathi Foundation — Website
 
-A professional, emotionally resonant, and trustworthy website for **Kanyadan
+A professional, emotionally resonant, and trustworthy website for **Shubhsaathi
 Foundation**, a registered Section 8 non-profit supporting underprivileged
 families with daughters' marriages, women's health insurance subsidies, and
 skill development.
@@ -81,6 +81,6 @@ Defined in `tailwind.config.js`: warm **saffron**, soft **rose/pink**, and
 
 ---
 
-© 2026 Kanyadan Foundation. All donations are tax-exempt under Section 80G of
+© 2026 Shubhsaathi Foundation. All donations are tax-exempt under Section 80G of
 the Income Tax Act.
 # Knayadan-Landing-page

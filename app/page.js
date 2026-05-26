@@ -1,4 +1,4 @@
-// Home page — composes every section of the Kanyadan Foundation site in order.
+// Home page — composes every section of the Shubhsaathi Foundation site in order.
 // Section components are individually client components; this page itself can
 // stay a server component since it only arranges them.
 

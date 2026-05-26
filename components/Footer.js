@@ -45,7 +45,7 @@ export default function Footer() {
         {/* Brand + about */}
         <div>
           <div className="flex items-center gap-3">
-            <Logo className="h-12 w-12" />
+            <Logo />
             <span className="font-serif text-lg font-bold">{t.nav.brand}</span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-ink-100/65">
