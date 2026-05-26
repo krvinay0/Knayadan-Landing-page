@@ -65,15 +65,19 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="container-kf flex h-36 items-center justify-between gap-4">
+      <div className="container-kf flex h-20 items-center justify-between gap-4">
         {/* Brand ----------------------------------------------------------- */}
-        <a href="#home" className="flex items-center gap-3" aria-label={t.nav.brand}>
-          <Logo />
-          <span className="leading-tight">
-            <span className="block font-serif text-base font-bold sm:text-lg">
+        <a
+          href="#home"
+          className="flex min-w-0 items-center gap-3"
+          aria-label={t.nav.brand}
+        >
+          <Logo className="h-14 w-14 shrink-0" />
+          <span className="hidden min-w-0 leading-tight sm:block">
+            <span className="block truncate font-serif text-base font-bold sm:text-lg">
               {t.nav.brand}
             </span>
-            <span className="block text-[0.68rem] font-medium uppercase tracking-wider text-saffron-600 dark:text-gold-300">
+            <span className="block truncate text-[0.68rem] font-medium uppercase tracking-wider text-saffron-600 dark:text-gold-300">
               {t.nav.brandTag}
             </span>
           </span>
@@ -149,14 +153,12 @@ export default function Header() {
           </button>
 
           {/* Donate CTA (hidden on the smallest screens; in the mobile menu instead) */}
-          <a href="#donate" className="btn-primary hidden sm:inline-flex">
+          <a
+            href="#donate"
+            className="btn-primary hidden whitespace-nowrap sm:inline-flex"
+          >
             <HeartIcon className="text-base" />
-            <span className="flex flex-col items-start leading-none">
-              <span>{t.nav.donate}</span>
-              <span className="text-[0.6rem] font-medium opacity-90">
-                {t.nav.donateNote}
-              </span>
-            </span>
+            <span>{t.nav.donate}</span>
           </a>
 
           {/* Mobile menu button */}

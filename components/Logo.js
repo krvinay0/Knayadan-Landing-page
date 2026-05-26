@@ -1,12 +1,11 @@
 'use client';
 
 // Brand mark for Shubhsaathi Foundation. Only Hindi gets a dedicated logo;
-// every other language (English and the regional languages) shows the
-// English logo by default.
+// every other language shows the English logo by default.
 
 import { useLanguage } from '@/lib/LanguageContext';
 
-export default function Logo({ className = 'h-[120px] w-[120px]' }) {
+export default function Logo({ className = 'h-16 w-16' }) {
   const { lang } = useLanguage();
   const src =
     lang === 'hi'
