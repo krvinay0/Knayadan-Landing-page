@@ -5,7 +5,6 @@
 
 import { useLanguage } from '@/lib/LanguageContext';
 import Reveal from './Reveal';
-import ImagePlaceholder from './ImagePlaceholder';
 import { CheckIcon, HeartIcon } from './Icons';
 
 export default function Leadership() {
@@ -18,10 +17,10 @@ export default function Leadership() {
         {/* Portrait -------------------------------------------------------- */}
         <Reveal className="lg:col-span-5">
           <div className="relative">
-            <ImagePlaceholder
-              variant={4}
-              icon={HeartIcon}
-              className="aspect-[4/5] w-full shadow-warm"
+            <img
+              src="/assets/founder.png"
+              alt={l.sign || 'Founder'}
+              className="object-cover aspect-[4/5] w-full rounded-2xl shadow-warm"
             />
             <div className="absolute -bottom-6 -right-4 rounded-2xl bg-gradient-to-r from-saffron-500 to-rose-500 px-6 py-4 text-white shadow-warm">
               <p className="font-serif text-lg font-bold">{l.sign}</p>

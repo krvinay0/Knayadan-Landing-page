@@ -2,7 +2,7 @@
 
 // Section 11 — Contact Us & Assistance.
 // Two tabbed forms (beneficiary application + general enquiry), office details,
-// and an embedded Google Map of the registered office in Patna, Bihar.
+// and an embedded Google Map of the registered office in Gaya, Bihar.
 
 import { useState } from 'react';
 import { useLanguage } from '@/lib/LanguageContext';
@@ -148,16 +148,16 @@ export default function Contact() {
                 <InfoRow icon={PinIcon}>{c.address}</InfoRow>
                 <InfoRow icon={ClockIcon}>{c.hours}</InfoRow>
                 <InfoRow icon={PhoneIcon}>
-                  <a href="tel:+916123456789" className="hover:underline">
-                    +91 612 345 6789
+                  <a href="tel:+917903927019" className="hover:underline">
+                    +91 79039 27019
                   </a>
                 </InfoRow>
                 <InfoRow icon={MailIcon}>
                   <a
-                    href="mailto:care@kanyadanfoundation.org"
+                    href="mailto:vinaykumarmaanyvar@gmail.com"
                     className="hover:underline"
                   >
-                    care@kanyadanfoundation.org
+                    vinaykumarmaanyvar@gmail.com
                   </a>
                 </InfoRow>
               </div>
@@ -168,8 +168,8 @@ export default function Contact() {
                   {c.mapTitle}
                 </p>
                 <iframe
-                  title="Shubhsaathi Foundation office location"
-                  src="https://www.google.com/maps?q=Boring+Road,+Patna,+Bihar&output=embed"
+                  title="Shubhsaathi Foundation, Welfare Bhawan, Bhadeji, Gaya, Bihar 823003"
+                  src="https://www.google.com/maps?q=24.759278,85.025194&z=17&output=embed"
                   className="h-64 w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

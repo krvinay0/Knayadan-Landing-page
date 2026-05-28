@@ -4,7 +4,6 @@
 
 import { useLanguage } from '@/lib/LanguageContext';
 import Reveal from './Reveal';
-import ImagePlaceholder from './ImagePlaceholder';
 import { HeartIcon, ArrowRight, RingIcon } from './Icons';
 
 export default function Hero() {
@@ -79,10 +78,10 @@ export default function Hero() {
         {/* Hero image ------------------------------------------------------ */}
         <Reveal delay={0.25}>
           <div className="relative">
-            <ImagePlaceholder
-              variant={0}
-              icon={HeartIcon}
-              className="aspect-[4/5] w-full shadow-warm"
+            <img
+              src="/assets/hero.png"
+              alt={t.hero.imageCaption}
+              className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-warm"
             />
             {/* Floating caption card */}
             <div className="absolute -bottom-6 left-4 right-4 rounded-2xl border border-saffron-100 bg-white/95 p-4 shadow-card backdrop-blur sm:left-8 sm:right-8 dark:border-ink-800 dark:bg-ink-900/95">
